@@ -1,12 +1,42 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Ionic Blank
+      Planejamento Financeiro
     </ion-title>
+    <ion-buttons slot='primary'>
+        <ion-button [routerLink]='["/novo-planejamento"]'>
+          <ion-icon name='add'></ion-icon>
+        </ion-button>
+      </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
+  <h3>Faça seu planejamento financeiro.</h3>
+  <div *ngIf="planejamentos.length > 0">
+      <h2>Veja seus planejamentos:</h2>
+      <br />
+      <div *ngFor="let planos of planejamentos">
+        <ion-card >
+          <ion-card-content>
+            <h2>
+              {{planos.nome}}
+            </h2>
+            <p>
+              {{planos.faturamento}}
+            </p>
+            <p>
+              {{planos.custo}}
+            </p>
+            <p style="text-align: right">
+                <ion-button color="danger" fill="outline" size="small" (click)="excluir(planos.nome)"><ion-icon name = 'trash'></ion-icon>Excluir</ion-button>
+            </p>
+          </ion-card-content>
+        </ion-card>
+      </div>  
+    </div>
+    <div *ngIf="planejamentos.length === 0">
+        <p>Ainda não há planejamentos.</p>
+        <ion-button [routerLink]='["/novo-planejamento"]'>Fazer planejamento</ion-button>
+    </div>
 </ion-content>

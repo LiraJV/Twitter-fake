@@ -1,5 +1,5 @@
 {
-  "name": "Twitter Fake",
+  "name": "Planejamento Financeiro",
   "version": "0.0.1",
   "author": "João Lira",
   "homepage": "https://ionicframework.com/",
@@ -54,5 +54,5 @@
     "tslint": "~5.12.0",
     "typescript": "~3.1.6"
   },
-  "description": "Twitter fake"
+  "description": "Um aplicativo para seu planejamento financeiro"
 }
